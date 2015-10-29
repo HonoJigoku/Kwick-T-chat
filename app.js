@@ -71,16 +71,10 @@
 				if (data.result.status == 'failure') {
 					$('#log').empty().append('<p id="cont" >this login is not available</p>');
 				}else {
-					$('#log').empty().append('<p id="cont" >You are Registered ' + user +'</p>');
-
-					$('#login').css ({
-						visibility: 'visible',
-					})
+					
+					app.setCredentials(data);
+					window.location.href="t'chat.html"
 				}
-
-				console.log(data);
-
-
 			})
 		},
 
@@ -116,9 +110,9 @@
 					$('#log').empty().append('<p id="cont">Wrong Login or Password</p>');
 				}else{
 
+					app.setCredentials(data);
 					window.location.href="t'chat.html"
 
-					app.setCredentials(data);
 				}
 			})
 		},
