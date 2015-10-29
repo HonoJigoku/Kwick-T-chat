@@ -38,6 +38,20 @@
 	color: #BEBFAF;
 }
 
+/* === Input === */
+
+#user {
+	margin-left: 80px;
+}
+
+#psw {
+	margin-left: 92px;
+}
+
+#psw2 {
+	margin-left: 5px;
+}
+
 /* === Button === */
 
 #content {

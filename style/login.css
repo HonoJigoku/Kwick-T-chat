@@ -38,6 +38,12 @@
 	color: #BEBFAF;
 }
 
+/* === Input === */
+
+#psw {
+	margin-left: 13px;
+}
+
 /* === Button === */
 
 #content {
