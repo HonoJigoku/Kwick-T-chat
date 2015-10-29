@@ -71,7 +71,7 @@
 				if (data.result.status == 'failure') {
 					$('#log').empty().append('<p id="cont" >this login is not available</p>');
 				}else {
-					
+
 					app.setCredentials(data);
 					window.location.href="t'chat.html"
 				}
@@ -177,7 +177,13 @@
 		userLoged: function(data) {
 			$('#user_log').empty();
 			for (var i = 0; i < data.result.user.length; i++) {
-				$('#user_log').append('<li><img src="../img/user.png" alt="">' + data.result.user[i] + '</li>');
+
+				//Si l'utilisateur est Hono, je lui assigne une image propre a lui sinon l'image par default
+				if(data.result.user[i] === 'Hono'){
+					$('#user_log').append('<li><img src="../img/eye_hono_min.png" alt="">' + data.result.user[i] + '</li>');
+				}else {
+					$('#user_log').append('<li><img src="../img/user.png" alt="">' + data.result.user[i] + '</li>');
+				}
 			};
 		},
 
@@ -243,8 +249,9 @@
 		//Fonction pour Token et Id (LocalStorage)
 
 		setCredentials: function(data) {
-			app.token = data.result.token;
-			app.id    = data.result.id;
+			app.token 		= data.result.token;
+			app.id    		= data.result.id;
+			app.user_img  	= $user;
 
 			localStorage.setItem("token", data.result.token);
 			localStorage.setItem("id", data.result.id);
@@ -256,8 +263,8 @@
 		},
 
 		removeCredentials: function() {
-			app.token = null;
-			app.id    = null;
+			app.token 		= null;
+			app.id    		= null;
 
 			localStorage.removeItem("token");
 			localStorage.removeItem("id");
