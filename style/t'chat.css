@@ -1,0 +1,165 @@
+#wrapper2 {
+	background-color: #7E7F75;
+	width: 1200px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin: auto auto;
+
+	box-shadow: 10px 10px 5px #3F403A;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+/* ==== Window T'chat ==== */
+
+#t_chat {
+	border: 3px solid #3F403A;
+	position: relative;
+	height: 700px;
+	width: 800px;
+	background-color: #BEBFAF;
+	margin-top: 20px;
+	margin-left: 380px;
+}
+
+#message {
+    overflow-y: scroll;
+    overflow-x: hidden;
+	position: absolute;
+	border: 3px solid #3F403A;
+	background-color: #FDFFE9;
+	left: 50px;
+	top: 20px;
+	height: 520px;
+	width: 700px;
+	word-break: break-all;
+}
+
+#message p {
+	background-color: #BEBFAF;
+	color: #3F403A;
+	margin: 5px 10px 5px 10px;
+	padding-left: 15px; 
+	line-height: 2;
+	border-radius: 15px;
+}
+
+#message span {
+	color: #3F403A;
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: 1.25em;
+}
+
+#send {
+	position: absolute;
+	border: 3px solid #3F403A;
+	bottom: 80px;
+	left: 100px;
+	width: 600px;
+	height: 40px;
+	font-size: 1.25em;
+	background-color: #FDFFE9;
+	color: #7F796B;
+}
+
+#send_mess {
+	text-decoration: none;
+	position: absolute;
+	bottom: 20px;
+	left: 370px;
+	background-color: #3F403A;
+	color: #BEBFAF;
+	border-radius: 30%;
+	padding: 10px;
+	font-size: 1.25em;
+}
+
+#send_mess:hover {
+	background-color: #7E7F75;
+	color: #3F403A;
+}
+
+/* List User */
+
+#user_list {
+	border: 3px solid #3F403A;
+	text-align: center;
+    overflow-y: scroll;
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 320px;
+	height: 700px;
+	background-color: #BEBFAF;
+}
+
+#user_list p {
+	font-family: 'Lobster', cursive;
+	margin-top: 20px;
+	font-size: 1.5em;
+	color: #3F403A;
+	text-decoration: underline;
+}
+
+#user_list ul {
+	margin-top: 30px;
+}
+
+#user_log li {
+	position: relative;
+	font-family: 'Lobster', cursive;
+	border: 3px solid #3F403A;
+	margin-top: 15px;
+	margin-left: 10px;
+	background-color: #FDFFE9;
+	width: 280px;
+	line-height: 2.5;
+	color: #7F796B;
+	font-size: 1.5em;
+}
+
+#user_log li img {
+	position: absolute;
+	border: 2px solid #3F403A;
+	left: 10px;
+	top: 2.5px;
+	width: 50px;
+	height: 50px;
+}
+
+
+/* === button === */
+
+#content {
+	text-align: center;
+}
+
+#logout {
+	visibility: visible;
+}
+
+#login {
+	visibility: hidden;
+}
+
+#content li {
+	display: inline-block;
+	font-size: 1.5em;
+	margin: 10px 0 10px 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#content li a {
+	background-color: #BEBFAF;
+	color: #3F403A;
+	text-decoration: none;
+	border-radius: 50%;
+	padding: 10px;
+}
+
+#content li a:hover {
+	background-color: #3F403A;
+	color: #BEBFAF;
+}

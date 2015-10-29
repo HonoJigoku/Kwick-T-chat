@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Kwick t'chat/SingUp</title>
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../style/style.css">
+	<link rel="stylesheet" href="../style/singup.css">
+</head>
+<body>
+	<header id="header">
+		<h1>Kwick t'chat</h1>
+		<h2>Kwick API by <span class="souligner">Thierry Tranchina</span></h2>
+	</header>
+
+	<div id="wrapper">
+	<main id="content">
+	<ul>
+		<li><a href="../index.html">Home</a></li>
+		<li><a id="login" href="../page/login.html">Login</a></li>
+		<li><a id="logout" href="#">Logout</a></li>
+	</ul>	
+	</main>
+
+	<div id="log"></div>
+	
+	<form id="form">
+		<h1><span class="souligner">SignUp</span></h1>
+		<label for="user">User Name:</label>
+		<input id="user"type="text">
+		<br></br>
+		<label id ="lpsw" for="psw">Password:</label>
+		<input id="psw"type="password">
+		<br></br>
+		<a href="#" id="submit">SignUp</button>
+	</form>
+	
+	</div>
+
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script src="../app.js"></script>
+	<script>app.initializeSignUp();</script>
+	<script>app.initializeLogout();</script>
+
+</body>
+</html>

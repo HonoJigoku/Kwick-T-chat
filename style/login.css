@@ -1,0 +1,67 @@
+/* === FORM === */
+
+#form {
+	width: 300px;
+	border: 2px solid #3F403A;
+	padding: 10px 10px 10px 10px;
+	font-size: 1.25em;
+	color: #3F403A; 
+	visibility: visible;
+	margin-left: 450px;
+	margin-top: 100px;
+	padding-bottom: 20px;
+}
+
+#form h1 {
+	font-family: 'Lobster', cursive;
+	margin-bottom: 10px;
+}
+
+#form input {
+	border: 2px solid #7F796B;
+	height: 30px;
+}
+
+#form #submit {
+	text-decoration: none;
+	margin-left: 110px;
+	background-color: #BEBFAF;
+	color: #3F403A;
+	border-radius: 50%;
+	padding: 10px;
+}
+
+#form #submit:hover {
+	background-color: #3F403A;
+	color: #BEBFAF;
+}
+
+/* === Button === */
+
+#content {
+	text-align: center;
+}
+
+#content li {
+	display: inline-block;
+	font-size: 1.5em;
+	margin-top: 25px;
+	margin-left: 10px;
+}
+
+#content li a {
+	background-color: #BEBFAF;
+	color: #3F403A;
+	text-decoration: none;
+	border-radius: 50%;
+	padding: 10px;
+}
+
+#content li a:hover {
+	background-color: #3F403A;
+	color: #BEBFAF;
+}
+
+#logout, #tchat {
+	visibility: hidden;
+}

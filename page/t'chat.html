@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Kwick t'chat Live</title>
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../style/style.css">
+	<link rel="stylesheet" href="../style/t'chat.css">
+</head>
+<body>
+	<header id="header">
+		<h1>Kwick t'chat</h1>
+		<h2>Kwick API by <span class="souligner">Thierry Tranchina</span></h2>
+	</header>
+
+	<div id="wrapper2">
+	<main id="content">
+		<ul>
+			<li><a id="logout" href="#">Logout</a></li>
+			<li><a id="login" href="../page/login.html">Login</a></li>
+		</ul>
+	</main>
+		<div id="log"></div>
+	<nav id="user_list">
+		<p>User Online</p>
+		<ul id="user_log"></ul>
+	</nav>
+	<main id="t_chat">
+		<div id="message">
+		</div>
+		<form>	
+			<textarea id="send" rows="2" cols="140" placeholder=" Message .... 140 carac max ..."></textarea>
+			<a href="#" id="send_mess">SEND</a>
+			<!-- <button id="send_mess" type="submit">SEND</button> -->
+		</form>
+	</main>
+	</div>
+
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script src="../app.js"></script>
+	<script>app.initalizeChat();</script>
+	<script>app.initializeLogout();</script>	
+	<script>app.initializeTalk();</script>	
+
+</body>
+</html>
