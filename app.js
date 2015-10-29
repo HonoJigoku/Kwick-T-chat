@@ -46,7 +46,9 @@
 
 
 			e.preventDefault();
-			if($psw.val() === $('#psw2')){
+
+			console.log($psw.val(), $('#psw2').val());
+			if($psw.val() === $('#psw2').val()){
 				var user = $user.val();
 				var psw = $psw.val();
 
