@@ -39,17 +39,20 @@
 		},
 
 		signup :function() {
+			$('#form').on('submit', app.signupSubmit);
+		},
 
-			$submit.on('click', function() {
+		signupSubmit: function(e) {
 
-				var user = $user.val();
-				var psw = $psw.val();
+			e.preventDefault();
 
-				app.getSignUp(user, psw);
+			var user = $user.val();
+			var psw = $psw.val();
 
-				$user.val('');
-				$psw.val('');
-			})
+			app.getSignUp(user, psw);
+
+			$user.val('');
+			$psw.val('');
 		},
 
 		getSignUp: function(user, psw) {
@@ -58,9 +61,9 @@
 					return alert(err);
 
 				if (data.result.status == 'failure') {
-					$('#log').empty().append('<p id="cont" >this login is not available  ' + user +'</p>');
+					$('#log').empty().append('<p id="cont" >this login is not available</p>');
 				}else {
-					$('#log').empty().append('<p id="cont" >You are SignUp ' + user +'</p>');
+					$('#log').empty().append('<p id="cont" >You are Registered ' + user +'</p>');
 
 					$('#login').css ({
 						visibility: 'visible',
@@ -80,17 +83,20 @@
 		},
 
 		login :function() {
+			$('#form').on('submit', app.loginSumit);
+		},
 
-			$submit.on('click', function() {
+		loginSumit: function(e) {
 
-				var user = $user.val();
-				var psw = $psw.val();
+			e.preventDefault();
 
-				app.getLogin(user, psw);
+			var user = $user.val();
+			var psw = $psw.val();
 
-				$user.val('');
-				$psw.val('');
-			})
+			app.getLogin(user, psw);
+
+			$user.val('');
+			$psw.val('');
 		},
 
 		getLogin: function(user, psw) {
@@ -99,7 +105,7 @@
 					return alert(err);
 
 				if (data.result.status == 'failure') {
-					$('#log').empty().append('<p id="cont">Wrong Login or Password ' + user +'</p>');
+					$('#log').empty().append('<p id="cont">Wrong Login or Password</p>');
 				}else{
 
 					window.location.href="t'chat.html"
@@ -129,8 +135,9 @@
 				if (err)
 					return alert(err);
 
-				window.location.href="login.html"
 				app.removeCredentials();
+
+				window.location.href="login.html"
 			})
 		},
 
@@ -140,19 +147,8 @@
 
 			app.getCredentials();
 
-				if (app.id === 0 || app.token === 'undefined') {
-					$('#log').empty().append('<p id="cont">No connect</p>');				
-					$('#user_log').empty();
-					$('#t_chat').empty();
-
-					$logout.css ({
-						visibility: 'hidden',
-					})
-
-					$('#login').css ({
-						visibility: 'visible',
-					})
-
+				if ((app.id === 0 || app.token === 'undefined') || (app.id === null || app.token === null)) {
+					window.location.href="login.html"
 				}else {
 					app.getUserLoged();
 					app.getMessage();
@@ -211,33 +207,23 @@
 		//Fonction pour parler dans le t'chat
 		
 		initializeTalk: function() {
-				app.sayUserButton();
-				app.sayUserEnter();
+			app.sayUserButton();
 		},
 
 		sayUserButton: function() {
-			$('#send_mess').on('mousedown', function() {
-
-				var mess = encodeURIComponent($('#send').val());
-
-				app.SendsayUser(app.token, app.id, mess);
-
-				$('#send').val('')
-			})
+			$('#shoutbox').on('submit', app.sendMessage);
 		},
 
-		sayUserEnter: function() {
+		sendMessage: function(e) {
+			e.preventDefault();
 
-			$('#send_mess').keydown(function(e) {
-   				if (e.keyCode == 13 || e.keyCode == 10) {
+			var mess = encodeURIComponent($('#send').val());
 
-   					var mess = encodeURIComponent($('#send').val());
+			app.SendsayUser(app.token, app.id, mess);
 
-					app.SendsayUser(app.token, app.id, mess);
+			$('#send').val('');
 
-					location.reload();
-				}
-			});
+			app.getMessage();
 		},
 
 		SendsayUser: function(token, id, mess) {

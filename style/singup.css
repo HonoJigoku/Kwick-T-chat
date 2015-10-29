@@ -23,12 +23,14 @@
 }
 
 #form #submit {
+	font-family: 'Lobster', cursive;
 	text-decoration: none;
 	margin-left: 110px;
 	background-color: #BEBFAF;
 	color: #3F403A;
 	border-radius: 50%;
 	padding: 10px;
+	font-size: 1.25em;
 }
 
 #form #submit:hover {
