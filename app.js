@@ -161,7 +161,7 @@
 					setInterval(function(){
 						app.getUserLoged();
 						app.getMessage();
-					}, 1500);		
+					}, 3000);		
 				}
 		},
 
