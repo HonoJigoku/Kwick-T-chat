@@ -45,7 +45,10 @@
 				var user = $user.val();
 				var psw = $psw.val();
 
-				app.getSingUp(user, psw);
+				app.getSignUp(user, psw);
+
+				$user.val('');
+				$psw.val('');
 			})
 		},
 
@@ -54,11 +57,19 @@
 				if (err)
 					return alert(err);
 
-				$('#log').empty().append('<p id="cont" >You are SignUp ' + user +'</p>');
+				if (data.result.status == 'failure') {
+					$('#log').empty().append('<p id="cont" >this login is not available  ' + user +'</p>');
+				}else {
+					$('#log').empty().append('<p id="cont" >You are SignUp ' + user +'</p>');
 
-				$('#login').css ({
-					visibility: 'visible',
-				})
+					$('#login').css ({
+						visibility: 'visible',
+					})
+				}
+
+				console.log(data);
+
+
 			})
 		},
 
@@ -76,7 +87,9 @@
 				var psw = $psw.val();
 
 				app.getLogin(user, psw);
-				
+
+				$user.val('');
+				$psw.val('');
 			})
 		},
 
@@ -85,28 +98,15 @@
 				if (err)
 					return alert(err);
 
-				$('#log').empty().append('<p id="cont">You are connect ' + user +'</p>');
+				if (data.result.status == 'failure') {
+					$('#log').empty().append('<p id="cont">Wrong Login or Password ' + user +'</p>');
+				}else{
 
-				$logout.css ({
-					visibility: 'visible',
-				})
+					window.location.href="t'chat.html"
 
-				$('#tchat').css ({
-					visibility: 'visible',
-				})
-
-				$('#hall').css({
-					visibility: 'hidden',
-				})
-
-				$('#signup').css({
-					visibility: 'hidden',
-				})
-
-				app.setCredentials(data);
-				
+					app.setCredentials(data);
+				}
 			})
-
 		},
 
 		// Fonction pour la deconnecxion
@@ -129,18 +129,8 @@
 				if (err)
 					return alert(err);
 
-				$('#log').empty().append('<p id="cont" >You are  disconect </p>');
-
-				$logout.css ({
-					visibility: 'hidden',
-				})
-
-				$('#login').css ({
-					visibility: 'visible',
-				})
-
+				window.location.href="login.html"
 				app.removeCredentials();
-
 			})
 		},
 
@@ -164,6 +154,8 @@
 					})
 
 				}else {
+					app.getUserLoged();
+					app.getMessage();
 					setInterval(function(){
 						app.getUserLoged();
 						app.getMessage();
