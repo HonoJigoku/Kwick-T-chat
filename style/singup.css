@@ -1,7 +1,7 @@
 /* === FORM === */
 
 #form {
-	width: 300px;
+	width: 400px;
 	border: 2px solid #3F403A;
 	padding: 10px 10px 10px 10px;
 	font-size: 1.25em;
@@ -14,18 +14,18 @@
 
 #form h1 {
 	font-family: 'Lobster', cursive;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 #form input {
 	border: 2px solid #7F796B;
-	height: 30px;
+	height: 20px;
 }
 
 #form #submit {
 	font-family: 'Lobster', cursive;
 	text-decoration: none;
-	margin-left: 110px;
+	margin-left: 150px;
 	background-color: #BEBFAF;
 	color: #3F403A;
 	border-radius: 50%;
@@ -64,9 +64,5 @@
 	color: #BEBFAF;
 }
 #content #login {
-	visibility: hidden;
-}
-
-#logout {
 	visibility: hidden;
 }

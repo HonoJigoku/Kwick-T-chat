@@ -44,15 +44,21 @@
 
 		signupSubmit: function(e) {
 
+
 			e.preventDefault();
+			if($psw.val() === $('#psw2')){
+				var user = $user.val();
+				var psw = $psw.val();
 
-			var user = $user.val();
-			var psw = $psw.val();
+				app.getSignUp(user, psw);
 
-			app.getSignUp(user, psw);
-
-			$user.val('');
-			$psw.val('');
+				$user.val('');
+				$psw.val('');
+			}else {
+				$('#log').empty().append('<p id="cont">Password not match</p>');
+				$psw.val('');
+				$('#psw2').val('');
+			}
 		},
 
 		getSignUp: function(user, psw) {
@@ -90,13 +96,13 @@
 
 			e.preventDefault();
 
-			var user = $user.val();
-			var psw = $psw.val();
+				var user = $user.val();
+				var psw = $psw.val();
 
-			app.getLogin(user, psw);
+				app.getLogin(user, psw);
 
-			$user.val('');
-			$psw.val('');
+				$user.val('');
+				$psw.val('');
 		},
 
 		getLogin: function(user, psw) {
