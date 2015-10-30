@@ -45,17 +45,21 @@
 
 		signupSubmit: function(e) {
 
-
 			e.preventDefault();
+			var valide = true;
 
-			console.log($psw.val(), $('#psw2').val());
-			if($psw.val() === $('#psw2').val()){
+			if($user.val() === '' || $psw.val() ===  '') {
+				$('#log').empty().append('<p id="cont">Login or Password black</p>');
+				valide = false;
+			}
+			if($psw.val() === $('#psw2').val() && valide === true){
 				var user = $user.val();
 				var psw = $psw.val();
 
 				app.getSignUp(user, psw);
 
-			}else {
+			}
+			else if(valide === true) {
 				$('#log').empty().append('<p id="cont">Password not match</p>');
 				$psw.val('');
 				$('#psw2').val('');
@@ -90,12 +94,19 @@
 		loginSumit: function(e) {
 
 			e.preventDefault();
+			var valide = true;
+
+			if($user.val() === '' || $psw.val() ===  '') {
+				$('#log').empty().append('<p id="cont">Login or Password black</p>');
+				valide = false;
+			}
+			if(valide === true) {
 
 				var user = $user.val();
 				var psw = $psw.val();
 
 				app.getLogin(user, psw);
-
+			}
 		},
 
 		getLogin: function(user, psw) {
@@ -178,7 +189,7 @@
 				//Si l'utilisateur est Hono, je lui assigne une image propre a lui sinon l'image par default
 				if(data.result.user[i] === 'Hono'){
 					$('#user_log').append('<li><img src="../img/eye_hono_min.png" alt="photo batman">' + data.result.user[i] + '</li>');
-				}
+				}//Aplique une autre image pour l'utilisateur
 				else if (data.result.user[i] === app.pseudo){
 					$('#user_log').append('<li><img src="../img/moi.jpg" alt="eyes Hono">' + data.result.user[i] + '</li>');
 				}else {
