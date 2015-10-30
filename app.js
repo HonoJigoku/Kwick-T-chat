@@ -151,7 +151,7 @@
 			})
 		},
 
-		// Fonction pour afficher la liste des utilisateur connecter
+		// Fonction pour afficher la liste des utilisateur connecter avec compteur
 
 		initalizeChat: function () {
 
@@ -183,9 +183,14 @@
 		},
 
 		userLoged: function(data) {
+			//$('#user_list').empty();
 			$('#user_log').empty();
+			var compteur = 0;
+			
 			for (var i = 0; i < data.result.user.length; i++) {
-
+				compteur = compteur + 1;
+				$('#compteur').empty();
+				$('#compteur').append('User Online: '+compteur)
 				//Si l'utilisateur est Hono, je lui assigne une image propre a lui sinon l'image par default
 				if(data.result.user[i] === 'Hono'){
 					$('#user_log').append('<li><img src="../img/eye_hono_min.png" alt="photo batman">' + data.result.user[i] + '</li>');
