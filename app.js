@@ -193,7 +193,7 @@
 				else if (data.result.user[i] === app.pseudo){
 					$('#user_log').append('<li><img src="../img/moi.jpg" alt="eyes Hono">' + data.result.user[i] + '</li>');
 				}else {
-					$('#user_log').append('<li><img src="../img/user.png" alt="Photo Vide">' + data.result.user[i] + '</li>');
+					$('#user_log').append('<li><img src="../img/user.jpg" alt="Photo Vide">' + data.result.user[i] + '</li>');
 				}
 			};
 		},
