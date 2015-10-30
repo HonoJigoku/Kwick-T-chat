@@ -165,7 +165,7 @@
 					setInterval(function(){
 						app.getUserLoged();
 						app.getMessage();
-					}, 3000);	
+					}, 5000);	
 				}
 		},
 
@@ -231,8 +231,7 @@
 				}
 			};
 		},
-
-		
+	
 		//Fonction pour parler dans le t'chat
 		
 		initializeTalk: function() {
@@ -241,18 +240,6 @@
 
 		sayUserButton: function() {
 			$('#shoutbox').on('submit', app.sendMessage);
-		},
-
-		sendMessage: function(e) {
-			e.preventDefault();
-
-			var mess = encodeURIComponent($('#send').val());
-
-			app.SendsayUser(app.token, app.id, mess);
-
-			$('#send').val('');
-
-			app.getMessage();
 		},
 
 		SendsayUser: function(token, id, mess) {
@@ -264,6 +251,20 @@
 				if (err)
 					return alert(err);
 			})
+		},
+
+		sendMessage: function(e) {
+			e.preventDefault();
+
+			var mess = encodeURIComponent($('#send').val());
+
+			$message.append('<p class="pseudo"><span>Moi</span> : ' + mess + '</p>');
+
+			app.SendsayUser(app.token, app.id, mess);
+
+			$('#send').val('');
+
+			app.getMessage();
 		},
 
 
