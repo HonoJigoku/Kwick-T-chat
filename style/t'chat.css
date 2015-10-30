@@ -38,7 +38,7 @@
 #message p {
 	background-color: #BEBFAF;
 	color: #3F403A;
-	margin: 5px 10px 5px 10px;
+	margin: 15px 10px 5px 0px;
 	padding-left: 15px; 
 	line-height: 2;
 	border-radius: 15px;
@@ -78,6 +78,16 @@
 #send_mess:hover {
 	background-color: #7E7F75;
 	color: #3F403A;
+}
+
+#message .pseudo {
+	width: 46%;
+	margin-left: 350px;
+}
+
+#message .other_user {
+	width: 46%;
+	margin-left: 10px;
 }
 
 /* List User */

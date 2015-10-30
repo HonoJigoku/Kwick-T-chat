@@ -31,6 +31,7 @@
 
 		token: null,
 		id: null,
+		pseudo: null,
 
 		// Fonction pour l'inscription
 
@@ -54,8 +55,6 @@
 
 				app.getSignUp(user, psw);
 
-				$user.val('');
-				$psw.val('');
 			}else {
 				$('#log').empty().append('<p id="cont">Password not match</p>');
 				$psw.val('');
@@ -97,8 +96,6 @@
 
 				app.getLogin(user, psw);
 
-				$user.val('');
-				$psw.val('');
 		},
 
 		getLogin: function(user, psw) {
@@ -157,7 +154,7 @@
 					setInterval(function(){
 						app.getUserLoged();
 						app.getMessage();
-					}, 3000);		
+					}, 3000);	
 				}
 		},
 
@@ -180,9 +177,12 @@
 
 				//Si l'utilisateur est Hono, je lui assigne une image propre a lui sinon l'image par default
 				if(data.result.user[i] === 'Hono'){
-					$('#user_log').append('<li><img src="../img/eye_hono_min.png" alt="">' + data.result.user[i] + '</li>');
+					$('#user_log').append('<li><img src="../img/eye_hono_min.png" alt="photo batman">' + data.result.user[i] + '</li>');
+				}
+				else if (data.result.user[i] === app.pseudo){
+					$('#user_log').append('<li><img src="../img/moi.jpg" alt="eyes Hono">' + data.result.user[i] + '</li>');
 				}else {
-					$('#user_log').append('<li><img src="../img/user.png" alt="">' + data.result.user[i] + '</li>');
+					$('#user_log').append('<li><img src="../img/user.png" alt="Photo Vide">' + data.result.user[i] + '</li>');
 				}
 			};
 		},
@@ -206,8 +206,13 @@
 			var message = data.result.talk;
 			$message.empty();
 			for (var j = 0; j < message.length; j++) {
-				$message.append('<p>' + '<span>' + message[j].user_name+ "</span> : " + message[j].content + '</p>');
-				$message.scrollTop(10*1000000);
+				if (message[j].user_name === app.pseudo){
+					$message.append('<p class="pseudo"><span>Moi</span> : ' + message[j].content + '</p>');
+					$message.scrollTop(10*1000000);
+				}else {			
+					$message.append('<p class="other_user">' + '<span>' + message[j].user_name+ "</span> : " + message[j].content + '</p>');
+					$message.scrollTop(10*1000000);
+				}
 			};
 		},
 
@@ -252,22 +257,27 @@
 			app.token 		= data.result.token;
 			app.id    		= data.result.id;
 			app.user_img  	= $user;
+			app.pseudo		= $user.val()
 
 			localStorage.setItem("token", data.result.token);
 			localStorage.setItem("id", data.result.id);
+			localStorage.setItem("pseudo", $user.val());
 		},
 
 		getCredentials: function () {
-			app.token = localStorage.getItem("token");
-			app.id    = localStorage.getItem("id");
+			app.token 		= localStorage.getItem("token");
+			app.id    		= localStorage.getItem("id");
+			app.pseudo    	= localStorage.getItem("pseudo");
 		},
 
 		removeCredentials: function() {
-			app.token 		= null;
-			app.id    		= null;
+			app.token 			= null;
+			app.id    			= null;
+			app.pseudo   		= null;
 
 			localStorage.removeItem("token");
 			localStorage.removeItem("id");
+			localStorage.removeItem("pseudo");
 		},
 
 		
